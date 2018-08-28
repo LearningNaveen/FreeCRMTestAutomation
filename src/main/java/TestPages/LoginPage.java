@@ -1,8 +1,5 @@
 package TestPages;
 
-import java.util.concurrent.TimeUnit;
-
-import org.omg.CORBA.TIMEOUT;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -41,10 +38,19 @@ public class LoginPage extends TestBase{
 	}
 	
 	public HomePage login(String un, String pw ) {
+		try{
+			Thread.sleep(5000);
+			
+			}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		username.sendKeys(un);
 		password.sendKeys(pw);
 		loginBtn.click();
-		driver.manage().timeouts().pageLoadTimeout(5 , TimeUnit.SECONDS);
 		return new HomePage();
+	
 	}
 }
+
